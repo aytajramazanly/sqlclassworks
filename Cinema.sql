@@ -58,18 +58,154 @@
 --('Harry Potter'),
 --('Spiderman'),
 --('Matrix'),
---('Forest Gump')
+--('Forest Gump'),
+--('The Machinist'),
+--('The Revenant'),
+--('No Strings Attached'),
+--('The Prestige'),
+--('Inception'),
+--('Black Swan'),
+--('The Butterfly Effect'),
+--('The Girl On The Train')
 
 --insert into Genres values
 --('Drama'),
 --('Fantasy'),
 --('Action'),
---('Comedy')
+--('Comedy'),
+--('Psychological Thriller'),
+--('Western'),
+--('Thriller'),
+--('Romance'),
+--('Adventure'),
+--('Romantic Comendy')
+
+
 
 --insert into MovieGenres values
 --(1,1),
 --(2,2),
 --(3,2),
 --(5,4),
---(4,3)
+--(4,3),
+--(1,9),
+--(3,3),
+--(3,9),
+--(6,5),
+--(6,1),
+--(7,6),
+--(7,9),
+--(8,8),
+--(9,7),
+--(10,3),
+--(10,7),
+--(11,5),
+--(12,1),
+--(12,7),
+--(13,7),
 
+
+--insert into Actors values 
+--('Christian Bale'),
+--('Matthew McConaughey'),
+--('Anne Hathaway'),
+--('Tom Holland'),
+--('Zendaya'),
+--('Daniel Radcliffe'),
+--('Emma Watson'),
+--('Rupert Grint'),
+--('keanu Reeves'),
+--('Tom Hanks'),
+--('Leonardo DiCaprio'),
+--('Joseph Gordon-Levitt'),
+--('Natalie Portman'),
+--('Ashton Kutcher'),
+--('Mila Kunis'),
+--('Amy Smart'),
+--('Emily Blunt'),
+--('Luke Evans')
+
+--insert into MovieActors (ActorId, MovieId) values 
+--(1,6),
+--(1,9),
+--(2,1),
+--(2,1),
+--(3,1),
+--(4,3),
+--(5,3),
+--(6,2),
+--(7,2),
+--(8,2),
+--(9,4),
+--(10,5),
+--(11,7),
+--(11,10),
+--(12,10),
+--(13,11),
+--(15,11),
+--(13,8),
+--(14,8),
+--(14,12),
+--(16,12),
+--(17,13),
+--(18,13)
+
+
+--insert into Hall values
+--('Hall 1'),
+--('Hall 2'),
+--('Hall 3'),
+--('Hall 4'),
+--('Hall 5'),
+--('Hall 6'),
+--('Hall Platinium')
+
+
+--insert into Sessions values 
+--('2022-01-26 10:00', 1, 2),
+--('2022-01-26 10:15', 2, 6),
+--('2022-01-26 10:25', 3, 9),
+--('2022-01-26 10:05', 4, 12),
+--('2022-01-26 10:35', 5, 4),
+--('2022-01-26 10:50', 6, 13),
+--('2022-01-26 12:30', 7, 6),
+--('2022-01-26 18:00', 1, 9),
+--('2022-01-26 18:15', 4, 6),
+--('2022-01-26 15:30', 7, 4),
+--('2022-01-26 14:50', 5, 13) 
+
+--insert into Customers values 
+--('Aytac Ramazanli','1234567'),
+--('Ilkin Bayramov','1234568'),
+--('Lale Rzayeva','1234568'),
+--('Nigar Rzayeva','1234568'),
+--('Orxan Abdullayev','1234568')
+
+--insert into Tickets (SessionId, CustomersId)values 
+--(9,1),
+--(8,3),
+--(8,4),
+--(4,5)
+
+--create view v_TicketsInfo
+--as
+--select c.Fullname 'Customer', m.Name 'Movie', g.Name 'Genre', h.Name 'Hall', Time  from Tickets t
+--join Customers c
+--on t.CustomersId=c.Id
+
+--join Sessions s
+--on t.SessionId=s.Id
+
+--join Hall h
+--on s.HallId=h.Id
+
+--join Movies m
+--on s.MovieId=m.Id
+
+--join MovieGenres mg
+--on m.Id=mg.MovieId
+
+--join Genres g
+--on g.Id=mg.GenreId
+
+--select * from v_TicketsInfo
